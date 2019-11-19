@@ -31,7 +31,7 @@ export default class NavBarLeft extends React.Component<Props, State> {
       <div className="nav-left p-2 h-100">
         <Collapse isOpen={this.state.collapse}>
           <Nav vertical>
-            <NavItem active>
+            <NavItem>
               <NavLink href="#">
                 <FontAwesomeIcon icon={faHome} className="mr-2" fixedWidth={true} />
                 Home

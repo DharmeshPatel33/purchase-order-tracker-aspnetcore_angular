@@ -18,24 +18,26 @@ export class LogoutHttpInterceptor implements HttpInterceptor {
     if (request.url.includes(loginAccountUrl) || request.url.includes(logoutAccountUrl)) {
       return next.handle(request);
     } else {
-      return next.handle(request).pipe(
-        catchError((err: HttpErrorResponse) => {
-          if (err.status == 401) {
-            const tokenIsExpired =
-              err.headers.has('WWW-Authenticate') &&
-              err.headers.get('WWW-Authenticate').includes('The token is expired');
+      return next
+        .handle(request)
+        .pipe
+        // catchError((err: HttpErrorResponse) => {
+        //   if (err.status == 401) {
+        //     const tokenIsExpired =
+        //       err.headers.has('WWW-Authenticate') &&
+        //       err.headers.get('WWW-Authenticate').includes('The token is expired');
 
-            if (tokenIsExpired) {
-              const command = new RefreshCommand(this.authService.currentUser.token.refresh_token);
-              this.authService.handleRefreshCommand(command).subscribe(result => {}, err => that.handleLogout());
-            } else {
-              that.handleLogout();
-            }
-          }
+        //     if (tokenIsExpired) {
+        //       const command = new RefreshCommand(this.authService.currentUser.token.refresh_token);
+        //       this.authService.handleRefreshCommand(command).subscribe(result => {}, err => that.handleLogout());
+        //     } else {
+        //       that.handleLogout();
+        //     }
+        //   }
 
-          return throwError(err);
-        })
-      );
+        //   return throwError(err);
+        // })
+        ();
     }
   }
 

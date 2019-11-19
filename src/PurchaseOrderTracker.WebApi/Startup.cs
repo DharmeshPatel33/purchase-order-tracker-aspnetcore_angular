@@ -38,8 +38,8 @@ namespace PurchaseOrderTracker.WebApi
             services.AddHttpContextAccessor();
             services.AddScoped<ICurrentUser, CurrentUserHttpContext>();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
-            services.AddDbContext<PoTrackerDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("PoTrackerDatabase")));
+            //services.AddDbContext<PoTrackerDbContext>(opt =>
+            //    opt.UseSqlServer(Configuration.GetConnectionString("PoTrackerDatabase")));
 
             // This must be configured after services.AddMvc() in ASP.Net 2.1. It is fixed in ASP.Net 2.2
             // https://github.com/aspnet/Docs/issues/6881

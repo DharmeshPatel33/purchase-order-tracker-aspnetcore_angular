@@ -41,7 +41,15 @@ describe('AccountComponent', () => {
     expect(component).toBeDefined();
   });
 
+  // descibre('when user is already logged in')
+  // it('redirects to default url')
+  // it('redirects to query param url')
+
+  //describe('when user is not authenticated')
+  // it('forces user to authenticat')
+
   describe('#ngOnInit', () => {
+    // redirects when user is already logged in
     it('call skipLoginIfAlreadyAuthenticated', () => {
       const skipLoginSpy = spyOn(component, 'skipLoginIfAlreadyAuthenticated');
       component.ngOnInit();
@@ -96,6 +104,12 @@ describe('AccountComponent', () => {
       expect(navigateByUrlSpy).toHaveBeenCalledWith(mainSiteUrl);
     });
   });
+
+
+  // descibre('when user submits login form')
+  // it('redirects to default url if successful')
+  // it('display an error if login fails')
+  // it('display an error if login encounters unexpected error')
 
   describe('#onSubmit', () => {
     it('call navigateToNextUrl if authentication is successful', () => {

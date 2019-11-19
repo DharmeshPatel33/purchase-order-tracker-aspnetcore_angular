@@ -15,7 +15,7 @@ namespace PurchaseOrderTracker.WebApi
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-            InitializeDatabase(host);
+            //InitializeDatabase(host);
             host.Run();
         }
 

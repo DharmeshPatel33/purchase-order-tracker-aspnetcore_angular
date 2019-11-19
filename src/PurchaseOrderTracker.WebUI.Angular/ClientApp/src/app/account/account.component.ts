@@ -23,9 +23,9 @@ export class AccountComponent implements OnInit {
 
   // TODO: this causes the account page to display momentarily
   skipLoginIfAlreadyAuthenticated() {
-    if (this.authService.currentUser != null) {
-      this.navigateToNextUrl();
-    }
+    //if (this.authService.currentUser != null) {
+    this.navigateToNextUrl();
+    //}
   }
 
   navigateToNextUrl(): void {
